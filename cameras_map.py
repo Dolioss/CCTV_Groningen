@@ -1,8 +1,7 @@
 import pandas as pd
 import folium
 
-# Load the CSV
-df = pd.read_csv("sensorenregister_gemeente _Groningen.csv", delimiter=";")
+df = pd.read_csv("sensorenregister_gemeente_Groningen.csv", delimiter=";")
 
 # Filter for CCTV only
 df = df[df["typesensor"] == "Cameratoezicht"]
@@ -27,5 +26,4 @@ for tile in tiles_list:
     folium.TileLayer(tile, name=tile).add_to(m)
 folium.LayerControl().add_to(m)
 
-# Save the map
 m.save("cameras_map.html")
